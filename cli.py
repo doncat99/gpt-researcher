@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 
 from gpt_researcher import GPTResearcher
 from gpt_researcher.utils.enum import ReportType
-from backend.report_type import DetailedReport
+from backend_gpt.report_type import DetailedReport
 
 # =============================================================================
 # CLI

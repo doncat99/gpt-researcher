@@ -4,8 +4,8 @@ from typing import Dict, List
 
 from fastapi import WebSocket
 
-from backend.report_type import BasicReport, DetailedReport
-from backend.chat import ChatAgentWithMemory
+from backend_gpt.report_type import BasicReport, DetailedReport
+from backend_gpt.chat import ChatAgentWithMemory
 
 from gpt_researcher.utils.enum import ReportType, Tone
 from multi_agents.main import run_research_task

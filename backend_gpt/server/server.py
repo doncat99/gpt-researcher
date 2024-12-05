@@ -8,8 +8,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
-from backend.server.websocket_manager import WebSocketManager
-from backend.server.server_utils import (
+from backend_gpt.server.websocket_manager import WebSocketManager
+from backend_gpt.server.server_utils import (
     get_config_dict,
     update_environment_variables, handle_file_upload, handle_file_deletion,
     execute_multi_agents, handle_websocket_communication
