@@ -1,12 +1,16 @@
+from dotenv import load_dotenv
+load_dotenv()
+
+import os
 from .base import BaseConfig
 
 DEFAULT_CONFIG: BaseConfig = {
     "RETRIEVER": "tavily",
     "EMBEDDING": "openai:text-embedding-3-small",
     "SIMILARITY_THRESHOLD": 0.42,
-    "FAST_LLM": "openai:gpt-4o-mini",
-    "SMART_LLM": "openai:gpt-4o-2024-11-20",
-    "STRATEGIC_LLM": "openai:gpt-4o", # Can be used with gpt-o1
+    "FAST_LLM": "openai:gpt-4o-2024-08-06",
+    "SMART_LLM": "openai:gpt-4o-2024-08-06",
+    "STRATEGIC_LLM": "openai:gpt-4o-2024-08-06", # Can be used with gpt-o1
     "FAST_TOKEN_LIMIT": 2000,
     "SMART_TOKEN_LIMIT": 4000,
     "BROWSE_CHUNK_MAX_LENGTH": 8192,
@@ -24,5 +28,5 @@ DEFAULT_CONFIG: BaseConfig = {
     "SCRAPER": "bs",
     "MAX_SUBTOPICS": 3,
     "REPORT_SOURCE": "web",
-    "DOC_PATH": "./my-docs"
+    "DOC_PATH": os.getenv("DOC_PATH", "./my-docs"),
 }
