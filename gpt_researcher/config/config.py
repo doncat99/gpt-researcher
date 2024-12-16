@@ -2,7 +2,6 @@ import json
 import os
 import warnings
 from typing import Dict, Any, List, Union, Type, get_origin, get_args
-from .variables.default import DEFAULT_CONFIG
 from .variables.base import BaseConfig
 from ..retrievers.utils import get_all_retriever_names
 
@@ -101,11 +100,14 @@ class Config:
                 self.validate_doc_path()
             except Exception as e:
                 print(f"Warning: Error validating doc_path: {str(e)}. Using default doc_path.")
+                from .variables.default import DEFAULT_CONFIG
                 self.doc_path = DEFAULT_CONFIG['DOC_PATH']
 
     @classmethod
     def load_config(cls, config_path: str | None) -> Dict[str, Any]:
         """Load a configuration by name."""
+        from .variables.default import DEFAULT_CONFIG
+
         if config_path is None:
             return DEFAULT_CONFIG
 
@@ -150,7 +152,7 @@ class Config:
     @staticmethod
     def parse_llm(llm_str: str | None) -> tuple[str | None, str | None]:
         """Parse llm string into (llm_provider, llm_model)."""
-        from gpt_researcher.llm_provider.generic.base import _SUPPORTED_PROVIDERS
+        from ..llm_provider.generic.base import _SUPPORTED_PROVIDERS
 
         if llm_str is None:
             return None, None
@@ -170,7 +172,7 @@ class Config:
     @staticmethod
     def parse_embedding(embedding_str: str | None) -> tuple[str | None, str | None]:
         """Parse embedding string into (embedding_provider, embedding_model)."""
-        from gpt_researcher.memory.embeddings import _SUPPORTED_PROVIDERS
+        from ..memory.embeddings import _SUPPORTED_PROVIDERS
 
         if embedding_str is None:
             return None, None

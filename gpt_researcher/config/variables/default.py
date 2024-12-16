@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+load_dotenv()
+
+import os
 from .base import BaseConfig
 
 DEFAULT_CONFIG: BaseConfig = {
@@ -24,5 +28,5 @@ DEFAULT_CONFIG: BaseConfig = {
     "SCRAPER": "bs",
     "MAX_SUBTOPICS": 3,
     "REPORT_SOURCE": "web",
-    "DOC_PATH": "./my-docs"
+    "DOC_PATH": os.getenv("DOC_PATH", "./my-docs"),
 }
