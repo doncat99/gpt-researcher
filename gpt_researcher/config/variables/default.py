@@ -13,6 +13,7 @@ DEFAULT_CONFIG: BaseConfig = {
     "STRATEGIC_LLM": "openai:gpt-4o-2024-08-06", # Can be used with gpt-o1
     "FAST_TOKEN_LIMIT": 2000,
     "SMART_TOKEN_LIMIT": 4000,
+    "STRATEGIC_TOKEN_LIMIT": 4000,
     "BROWSE_CHUNK_MAX_LENGTH": 8192,
     "CURATE_SOURCES": False,
     "SUMMARY_TOKEN_LIMIT": 700,
@@ -27,6 +28,7 @@ DEFAULT_CONFIG: BaseConfig = {
     "AGENT_ROLE": None,
     "SCRAPER": "bs",
     "MAX_SUBTOPICS": 3,
+    "LANGUAGE": "english",
     "REPORT_SOURCE": "web",
     "DOC_PATH": os.getenv("DOC_PATH", "./my-docs"),
 }
